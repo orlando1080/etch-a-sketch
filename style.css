@@ -1,19 +1,33 @@
-.container-row {
+body {
+    min-height: 100vh;
+  }
+  
+  .grid-container {
     display: flex;
-    justify-content: center;
-    /* border: 1px solid; */
-    min-width: 0%;
-    flex: 1;
-   
-}
-
-.container-item:hover {
-    background-color: red;
-}
-
-.container-item {
-    height: 50px;
+    flex-direction: column;
     border: 1px solid;
-    flex-basis: 50px;
-    transition: background-color 0.3s ease;
-}
+  }
+  
+  .button-container {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  
+  .container-row {
+      display: flex;
+      justify-content: center;
+      min-width: 0%;
+      flex: 1;
+  }
+  
+  .hover {
+      background-color: red;
+  }
+  
+  .container-item {
+      height: 50px;
+      border: 1px solid;
+      flex-basis: 50px;
+      transition: background-color 0.3s ease;
+  }
