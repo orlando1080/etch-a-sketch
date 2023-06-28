@@ -1,33 +1,42 @@
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
+    height: 100vh;
   }
   
   .grid-container {
     display: flex;
     flex-direction: column;
+    width: 50%;
+    height: 50%;
     border: 1px solid;
+
   }
   
   .button-container {
     display: flex;
-    margin-bottom: 10px;
     justify-content: center;
+    margin-bottom: 10px;
+
   }
   
   .container-row {
       display: flex;
       justify-content: center;
-      min-width: 0%;
       flex: 1;
   }
   
   .hover {
-      background-color: red;
+      background-color: black;
   }
   
   .container-item {
-      height: 50px;
+      height: 100%;
+      flex-basis: 100%;
       border: 1px solid;
-      flex-basis: 50px;
       transition: background-color 0.3s ease;
+      
   }

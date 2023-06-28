@@ -33,7 +33,7 @@ function createButton() {
         body = document.querySelector('body');
   
   div.classList.add('button-container');
-  button.textContent = 'This is a button';
+  button.textContent = 'Grid Size';
   div.appendChild(button);
   body.appendChild(div);
   
@@ -42,14 +42,17 @@ function createButton() {
 }
 
 function removeGrid() {
-  rows = document.querySelectorAll('.container-row');
+
+  const rows = document.querySelectorAll('.container-row'),
+  gridContainer = document.querySelector('.grid-container');
+  gridContainer.remove();
   rows.forEach((row) => {
     row.remove();
   });
 }
 
 function promptGrid() {
-  const gridSize = prompt('input');
+  const gridSize = prompt('Select grid size between 1-100');
   removeGrid();
   createGrid(gridSize);
 }
