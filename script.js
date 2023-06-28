@@ -28,33 +28,38 @@ function highlightDiv() {
 }
 
 function createButton() {
-  const button = document.createElement('button'),
+    const button = document.createElement('button'),
         div = document.createElement('div'),
         body = document.querySelector('body');
   
-  div.classList.add('button-container');
-  button.textContent = 'Grid Size';
-  div.appendChild(button);
-  body.appendChild(div);
+    div.classList.add('button-container');
+    button.textContent = 'Grid Size';
+    div.appendChild(button);
+    body.appendChild(div);
   
-  const btn = document.querySelector('button');
-  btn.addEventListener('click', promptGrid);
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', promptGrid);
 }
 
 function removeGrid() {
-
-  const rows = document.querySelectorAll('.container-row'),
-  gridContainer = document.querySelector('.grid-container');
-  gridContainer.remove();
-  rows.forEach((row) => {
-    row.remove();
+    const rows = document.querySelectorAll('.container-row'),
+    gridContainer = document.querySelector('.grid-container');
+    gridContainer.remove();
+    rows.forEach((row) => {
+        row.remove();
   });
 }
 
 function promptGrid() {
-  const gridSize = prompt('Select grid size between 1-100', 16);
-  removeGrid();
-  createGrid(gridSize);
+    let gridSize;
+    do {
+        gridSize = prompt('Select grid size between 1-100', 16);
+        if (gridSize === null) {
+            gridSize = 16;
+        }
+    } while (gridSize < 1 || gridSize > 100);
+    removeGrid();
+    createGrid(gridSize);
 }
 
 createButton();
