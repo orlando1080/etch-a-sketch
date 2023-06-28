@@ -52,7 +52,7 @@ function removeGrid() {
 }
 
 function promptGrid() {
-  const gridSize = prompt('Select grid size between 1-100');
+  const gridSize = prompt('Select grid size between 1-100', 16);
   removeGrid();
   createGrid(gridSize);
 }
