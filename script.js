@@ -1,6 +1,6 @@
 function createTitle() {
     const body = document.querySelector('body'),
-        title = document.createElement('h1');
+    title = document.createElement('h1');
     title.textContent = 'Etch A Sketch';
     body.appendChild(title);
 }
@@ -29,6 +29,8 @@ function highlightDiv() {
     containerItems.forEach((item) => {
         item.addEventListener('mouseover', function() {
             item.classList.add('hover');
+            const randomColour = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+            item.style.backgroundColor = randomColour;
         });
     
     });
@@ -36,8 +38,8 @@ function highlightDiv() {
 
 function createButton() {
     const button = document.createElement('button'),
-        div = document.createElement('div'),
-        body = document.querySelector('body');
+    div = document.createElement('div'),
+    body = document.querySelector('body');
 
     div.classList.add('button-container');
     button.textContent = 'Grid Size';
@@ -50,8 +52,8 @@ function createButton() {
 
 function removeGrid() {
     const rows = document.querySelectorAll('.container-row'),
-        gridContainer = document.querySelector('.grid-container'),
-        knobsContainer = document.querySelector('.knobs-container');
+    gridContainer = document.querySelector('.grid-container'),
+    knobsContainer = document.querySelector('.knobs-container');
     knobsContainer.remove();
     gridContainer.remove();
     rows.forEach((row) => {
@@ -60,9 +62,9 @@ function removeGrid() {
 }
 
 function promptGrid() {
-    let gridSize;
+    let gridSize = 16;
     do {
-        gridSize = prompt('Select grid size between 16-100', 16);
+        gridSize = prompt('Select grid size between 16-100', gridSize);
         if (gridSize === null) {
             return;
         }
@@ -74,9 +76,9 @@ function promptGrid() {
 
 function createKnob() {
     const knobsContainer = document.createElement('div'),
-        knobContainer1 = document.createElement('canvas'),
-        knobContainer2 = document.createElement('canvas'),
-        body = document.querySelector('body');
+    knobContainer1 = document.createElement('canvas'),
+    knobContainer2 = document.createElement('canvas'),
+    body = document.querySelector('body');
     knobsContainer.classList.add('knobs-container');
     knobContainer1.classList.add('knobs');
     knobContainer2.classList.add('knobs');
@@ -92,6 +94,10 @@ function createKnob() {
         ctx.fillStyle = "white";
         ctx.fill();
     });
+}
+
+function random(number) {
+    return Math.floor(Math.random() * (number + 1));
 }
 
 createTitle();
