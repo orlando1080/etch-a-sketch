@@ -65,7 +65,6 @@ function createButtons() {
     body.appendChild(div);
     
     const sizeBtn = document.querySelector('.size-button');
-    console.log(sizeBtn);
     sizeBtn.addEventListener('click', promptGrid);
     
     const blackBtn = document.querySelector('.black-button');
@@ -112,7 +111,6 @@ function createKnob() {
     knobsContainer.appendChild(knobContainer2);
     body.appendChild(knobsContainer);
     const c = document.querySelectorAll('.knobs');
-    console.log(c);
     c.forEach((circle) => {
         const ctx = circle.getContext("2d");
         ctx.beginPath();
