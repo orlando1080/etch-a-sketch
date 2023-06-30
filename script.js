@@ -28,8 +28,6 @@ function multiColour() {
     const containerItems = document.querySelectorAll('.container-item');
     containerItems.forEach((item) => {
         item.addEventListener('mouseover', function() {
-            item.classList.remove('hover-black');
-            item.classList.add('hover');
             const randomColour = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
             item.style.backgroundColor = randomColour;
         });
@@ -40,9 +38,7 @@ function multiColour() {
 function blackColour() {
     const containerItems = document.querySelectorAll('.container-item');
     containerItems.forEach((item) => {
-        item.classList.remove('hover');
         item.addEventListener('mouseover', function() {
-            item.classList.add('hover-black');
             item.style.backgroundColor = 'black';
         });
     
