@@ -20,14 +20,15 @@ function createGrid(rows = 16) {
         }
         body.appendChild(gridContainer);
     }
-    highlightDiv();
+    blackColour();
 
 }
 
-function highlightDiv() {
+function multiColour() {
     const containerItems = document.querySelectorAll('.container-item');
     containerItems.forEach((item) => {
         item.addEventListener('mouseover', function() {
+            item.classList.remove('hover-black');
             item.classList.add('hover');
             const randomColour = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
             item.style.backgroundColor = randomColour;
@@ -36,18 +37,47 @@ function highlightDiv() {
     });
 }
 
-function createButton() {
-    const button = document.createElement('button'),
+function blackColour() {
+    const containerItems = document.querySelectorAll('.container-item');
+    containerItems.forEach((item) => {
+        item.classList.remove('hover');
+        item.addEventListener('mouseover', function() {
+            item.classList.add('hover-black');
+            item.style.backgroundColor = 'black';
+        });
+    
+    });
+}
+
+function createButtons() {
+    const sizeButton = document.createElement('button'),
     div = document.createElement('div'),
+    blackButton = document.createElement('button'),
+    multiColourButton = document.createElement('button'),
     body = document.querySelector('body');
-
+    
     div.classList.add('button-container');
-    button.textContent = 'Grid Size';
-    div.appendChild(button);
+    sizeButton.textContent = 'Grid Size';
+    blackButton.textContent = 'Black';
+    multiColourButton.textContent = 'Multi-coloured';
+    blackButton.classList.add('black-button');
+    multiColourButton.classList.add('multicolour-button');
+    sizeButton.classList.add('size-button');
+    div.appendChild(blackButton);
+    div.appendChild(multiColourButton);
+    div.appendChild(sizeButton);
     body.appendChild(div);
+    
+    const sizeBtn = document.querySelector('.size-button');
+    console.log(sizeBtn);
+    sizeBtn.addEventListener('click', promptGrid);
+    
+    const blackBtn = document.querySelector('.black-button');
+    blackBtn.addEventListener('click', blackColour);
 
-    const btn = document.querySelector('button');
-    btn.addEventListener('click', promptGrid);
+    const multiBtn = document.querySelector('.multicolour-button');
+    multiBtn.addEventListener('click', multiColour);
+    
 }
 
 function removeGrid() {
@@ -101,6 +131,6 @@ function random(number) {
 }
 
 createTitle();
-createButton();
+createButtons();
 createGrid();
 createKnob();

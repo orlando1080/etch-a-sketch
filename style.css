@@ -8,6 +8,17 @@ body {
   background-color: red;
 }
 
+button {
+  margin: 0px 10px;
+  font-size: large;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: lightblue;
+}
+
 h1 {
   font-family: Aclonica;
   color: goldenrod;
@@ -38,10 +49,6 @@ h1 {
   display: flex;
   justify-content: center;
   flex: 1;
-}
-
-.hover {
-  background-color: black;
 }
 
 .container-item {
