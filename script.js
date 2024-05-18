@@ -5,6 +5,8 @@ function createTitle() {
     body.appendChild(title);
 }
 
+console.log("This is a test title");
+
 function createGrid(rows = 16) {
     const body = document.querySelector('body'),
         gridContainer = document.createElement('div');
